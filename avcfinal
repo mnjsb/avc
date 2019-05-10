@@ -1,0 +1,55 @@
+# Conceito: Média harmônica é definida como o número de membros dividido pela soma do inverso dos membros
+# Fonte: https://pt.wikipedia.org/wiki/M%C3%A9dia_harm%C3%B4nica
+# Autor: Manoel Santiago
+# Data: Maio de 2019
+# -*- coding: UTF-8 -*
+from time import sleep
+import os
+import sys
+print("===============================================")
+print("    SOFTWARE MÉDIA HARMÔNICA CALCULATOR v1.0   ")
+print("===============================================")
+print("Calcula a média harmônica entre 3 números reais")
+print("===============================================")
+# Variáveis que recebem os valores digitados pelo usuário e fazem o tratamento de erros exceções
+# usando a estrutura "try except" caso usuário digite caracteres alfanuméricos.
+while True:
+	try:
+		v1 = float(input("\nInforme o primeiro valor: "))
+		break
+	except:
+		print("\nValor inválido. Informe apenas números reais")
+
+while True:
+	try:
+		v2 = float(input("\nInforme o segundo valor valor: "))
+		break
+	except:
+		print("\nValor inválido. Informe apenas números reais")
+
+while True:
+	try:
+		v3 = float(input("\nInforme o terceiro valor: "))
+		break
+	except:
+	 	print("\nValor inválido. Informe apenas números reais")
+# Variável que calcula a média harmônica dos 3 valores fornecidos pelo usuário
+# usa a estrutura try except para tratar o erro caso usuário digite zero em uma ou mais opções acima
+try:
+	media_harmonica = (3 / ((1 / v1) + (1 / v2) + (1 / v3)))
+except ZeroDivisionError: # erro de excessão de divisão por zero
+	print("\n-------------------------------------------------")
+	print("ERRO! Você digitou zero em uma mais opções!")
+	print("Impossível calcular média harmônica de zero. Tente Novamente!")
+	print("-------------------------------------------------\n")
+	 # Os 2 comandos abaixo reiniciam o progrma caso o usuário
+	 #digite zero em algumas das opções acima, pois não é possível dividir por zero
+	python = sys.executable
+	os.execl(python, python, * sys.argv)
+
+''' É exibido ao usuário os 3 valores que ele digitou seguido do
+resultado do cálculo da média harmônica dos mesmos '''
+print("\n>>>A Média Harmônica entre {}, {} e {}, é: {:.2f}\n".format(v1, v2, v3, media_harmonica))
+print("\nObrigado por utilizar nosso sistema!\n")
+sleep(5)
+sys.exit()
